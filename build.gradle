@@ -17,6 +17,9 @@ version = modVersion
 group = modGroup
 archivesBaseName = modBaseName
 
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
 minecraft {
     version = project.minecraftVersion + "-" + project.forgeVersion
     runDir = "run"
