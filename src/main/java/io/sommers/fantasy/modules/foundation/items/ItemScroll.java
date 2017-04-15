@@ -1,4 +1,4 @@
-package io.sommers.fantasy.items;
+package io.sommers.fantasy.modules.foundation.items;
 
 import com.teamacronymcoders.base.items.ItemBase;
 

@@ -1,4 +1,4 @@
-itemGroup.fantasy = "Fantasy"
+itemGroup.fantasy=Fantasy
 
-item.fantasy.scroll.name = Magic Scroll
-tile.fantasy.mage_light.name = Mage Light
+item.fantasy.scroll.name=Magic Scroll
+tile.fantasy.mage_light.name=Mage Light

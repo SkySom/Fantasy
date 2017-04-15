@@ -2,6 +2,8 @@ package io.sommers.fantasy;
 
 import com.teamacronymcoders.base.BaseModFoundation;
 import com.teamacronymcoders.base.creativetabs.CreativeTabBase;
+import com.teamacronymcoders.base.registrysystem.pieces.IRegistryPiece;
+import io.sommers.fantasy.registrysystem.SpellRegistry;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
@@ -9,6 +11,8 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+
+import java.util.List;
 
 @Mod(
         modid = Fantasy.MOD_ID,
@@ -27,6 +31,11 @@ public class Fantasy extends BaseModFoundation<Fantasy> {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
+    }
+
+    public void createRegistries(FMLPreInitializationEvent event, List<IRegistryPiece> registryPieces) {
+        super.createRegistries(event, registryPieces);
+        this.addRegistry("SPELL", new SpellRegistry(this, registryPieces));
     }
 
     @EventHandler

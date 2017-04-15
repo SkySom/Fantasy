@@ -1,4 +1,15 @@
 package io.sommers.fantasy.api.spells;
 
-public class ISpell {
+import net.minecraft.util.ResourceLocation;
+
+public interface ISpell {
+    ResourceLocation getName();
+
+    CastingType getCastingType();
+
+    void startCast();
+
+    void onTickCasting();
+
+    void onFinishCasting();
 }

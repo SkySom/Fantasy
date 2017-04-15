@@ -4,11 +4,23 @@ import com.teamacronymcoders.base.IBaseMod;
 import com.teamacronymcoders.base.registrysystem.ModularRegistry;
 import com.teamacronymcoders.base.registrysystem.pieces.IRegistryPiece;
 import io.sommers.fantasy.api.spells.ISpell;
+import io.sommers.fantasy.api.spells.ISpellRegistry;
+import net.minecraft.util.ResourceLocation;
 
 import java.util.List;
 
-public class SpellRegistry extends ModularRegistry<ISpell> {
+public class SpellRegistry extends ModularRegistry<ISpell> implements ISpellRegistry {
     public SpellRegistry(IBaseMod mod, List<IRegistryPiece> registryPieces) {
         super("SPELL", mod, registryPieces);
+    }
+
+    @Override
+    public void addSpell(ISpell spell) {
+        this.register(spell.getName(), spell);
+    }
+
+    @Override
+    public ISpell getSpell(ResourceLocation name) {
+        return this.get(name);
     }
 }
