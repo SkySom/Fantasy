@@ -25,10 +25,14 @@ minecraft {
 
 repositories {
     mavenCentral()
+    maven {
+        name 'BASE'
+        url 'http://maven.blamejared.com'
+    }
 }
 
 dependencies {
-    deobfCompile "com.teamacronymcoders.base:base:${minecraft_version}-${base_version}"
+    deobfCompile "com.teamacronymcoders.base:base:${minecraftVersion}-${baseVersion}"
 }
 
 processResources {
