@@ -1,5 +1,6 @@
 package io.sommers.fantasy.api.spells;
 
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
 public interface ISpell {
@@ -7,9 +8,11 @@ public interface ISpell {
 
     CastingType getCastingType();
 
-    void startCast();
+    int getCastingCost();
 
-    void onTickCasting();
+    void startCast(EntityPlayer player);
 
-    void onFinishCasting();
+    void onTickCasting(EntityPlayer player);
+
+    void onFinishCasting(EntityPlayer player);
 }
