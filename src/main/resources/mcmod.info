@@ -1,0 +1,20 @@
+[
+  {
+    "modid": "fantasy",
+    "name": "Fantasy",
+    "description": "A Small Spell Casting Mod",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "SkySom"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": [
+      "base"
+    ]
+  }
+]
