@@ -1,7 +1,7 @@
 package io.sommers.fantasy.modules.foundation.items;
 
 import com.teamacronymcoders.base.items.ItemBase;
-import io.sommers.fantasy.api.spells.FantasyCaps;
+import io.sommers.fantasy.api.FantasyCaps;
 import io.sommers.fantasy.api.spells.CastingAttributes;
 import io.sommers.fantasy.api.spells.ISpell;
 import io.sommers.fantasy.api.spells.spellholder.ISpellHolder;

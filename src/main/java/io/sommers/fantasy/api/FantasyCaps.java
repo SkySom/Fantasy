@@ -1,4 +1,4 @@
-package io.sommers.fantasy.api.spells;
+package io.sommers.fantasy.api;
 
 import io.sommers.fantasy.api.spells.spellholder.ISpellHolder;
 import io.sommers.fantasy.api.spells.spellholder.SpellHolder;

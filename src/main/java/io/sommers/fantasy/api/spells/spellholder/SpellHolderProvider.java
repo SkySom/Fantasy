@@ -1,6 +1,6 @@
 package io.sommers.fantasy.api.spells.spellholder;
 
-import io.sommers.fantasy.api.spells.FantasyCaps;
+import io.sommers.fantasy.api.FantasyCaps;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
