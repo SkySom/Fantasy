@@ -36,8 +36,8 @@ public class SpellBase implements ISpell {
     }
 
     @Override
-    public int getCastingCost() {
-        return 0;
+    public double getCastingCost(CastingAttributes castingAttributes) {
+        return Math.ceil(castingCost * castingAttributes.getCost());
     }
 
 

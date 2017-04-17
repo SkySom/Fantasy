@@ -48,27 +48,4 @@ public class SpellProjectile extends EntityArrow {
     protected ItemStack getArrowStack() {
         return FoundationModule.itemScroll.getItemStackFor(spell);
     }
-
-    @Override
-    public void writeEntityToNBT(NBTTagCompound compound) {
-        super.writeEntityToNBT(compound);
-        NBTTagCompound spellInfo = new NBTTagCompound();
-        spellInfo.setString("name", spell.getName().toString());
-        spellInfo.setTag("castingAttributes", this.castingAttributes.writeToNBT(new NBTTagCompound()));
-        compound.setTag("spell", spellInfo);
-    }
-
-    @Override
-    public void readEntityFromNBT(NBTTagCompound compound) {
-        super.readEntityFromNBT(compound);
-        NBTTagCompound spellInfo = compound.getCompoundTag("spell");
-        ISpell spell = FantasyAPI.getSpellRegistry().getSpell(spellInfo.getString("name"));
-        if (spell instanceof IProjectileSpell) {
-            this.spell = (IProjectileSpell) spell;
-        } else {
-            Fantasy.instance.getLogger().fatal("Could not find Projectile Spell: " + spellInfo.getString("name"));
-        }
-
-        this.castingAttributes = new CastingAttributes(spellInfo.getCompoundTag("castingAttributes"));
-    }
 }

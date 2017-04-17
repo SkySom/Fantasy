@@ -11,7 +11,7 @@ public interface ISpell {
 
     boolean canCast(EntityLivingBase livingBase);
 
-    int getCastingCost();
+    double getCastingCost(CastingAttributes castingAttributes);
 
     void startCast(EntityPlayer player, CastingAttributes castingAttributes);
 
