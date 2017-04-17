@@ -2,7 +2,7 @@ package io.sommers.fantasy.modulesystem;
 
 import com.teamacronymcoders.base.modulesystem.ModuleBase;
 import com.teamacronymcoders.base.registrysystem.config.ConfigRegistry;
-import io.sommers.fantasy.api.spells.ISpellRegistry;
+import io.sommers.fantasy.api.spells.registry.ISpellRegistry;
 import io.sommers.fantasy.registrysystem.SpellRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 

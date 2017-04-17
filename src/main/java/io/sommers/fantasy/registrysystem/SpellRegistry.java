@@ -4,9 +4,10 @@ import com.teamacronymcoders.base.IBaseMod;
 import com.teamacronymcoders.base.registrysystem.ModularRegistry;
 import com.teamacronymcoders.base.registrysystem.pieces.IRegistryPiece;
 import io.sommers.fantasy.api.spells.ISpell;
-import io.sommers.fantasy.api.spells.ISpellRegistry;
+import io.sommers.fantasy.api.spells.registry.ISpellRegistry;
 import net.minecraft.util.ResourceLocation;
 
+import java.util.Collection;
 import java.util.List;
 
 public class SpellRegistry extends ModularRegistry<ISpell> implements ISpellRegistry {
@@ -22,5 +23,10 @@ public class SpellRegistry extends ModularRegistry<ISpell> implements ISpellRegi
     @Override
     public ISpell getSpell(ResourceLocation name) {
         return this.get(name);
+    }
+
+    @Override
+    public Collection<ISpell> getAllSpells() {
+        return this.getEntries().values();
     }
 }

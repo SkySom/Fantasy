@@ -1,8 +1,9 @@
-package io.sommers.fantasy.api.spells;
+package io.sommers.fantasy.api.spells.registry;
 
+import io.sommers.fantasy.api.spells.ISpell;
 import net.minecraft.util.ResourceLocation;
 
-import java.util.List;
+import java.util.Collection;
 
 public interface ISpellRegistry {
     void addSpell(ISpell spell);
@@ -13,5 +14,5 @@ public interface ISpellRegistry {
         return this.getSpell(new ResourceLocation(name));
     }
 
-    List<ISpell> getAllSpells();
+    Collection<ISpell> getAllSpells();
 }

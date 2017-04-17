@@ -1,15 +1,12 @@
 package io.sommers.fantasy.modules.alteration;
 
-import com.teamacronymcoders.base.blocks.BlockBase;
 import com.teamacronymcoders.base.modulesystem.Module;
 import com.teamacronymcoders.base.registrysystem.BlockRegistry;
 import com.teamacronymcoders.base.registrysystem.config.ConfigRegistry;
-import io.sommers.fantasy.Fantasy;
-import io.sommers.fantasy.api.spells.ISpellRegistry;
+import io.sommers.fantasy.api.spells.registry.ISpellRegistry;
 import io.sommers.fantasy.api.spells.projectiles.ProjectileSpellBase;
 import io.sommers.fantasy.modules.alteration.blocks.BlockMageLight;
 import io.sommers.fantasy.modulesystem.FantasyModule;
-import io.sommers.fantasy.registrysystem.SpellRegistry;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
