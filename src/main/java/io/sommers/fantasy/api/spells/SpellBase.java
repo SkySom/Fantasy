@@ -1,5 +1,7 @@
 package io.sommers.fantasy.api.spells;
 
+import com.teamacronymcoders.base.util.ItemStackUtils;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 
@@ -27,6 +29,12 @@ public class SpellBase implements ISpell {
     public CastingType getCastingType() {
         return castingType;
     }
+
+    @Override
+    public boolean canCast(EntityLivingBase livingBase) {
+        return !ItemStackUtils.isValid(livingBase.getHeldItemMainhand());
+    }
+
     @Override
     public int getCastingCost() {
         return 0;
@@ -34,17 +42,17 @@ public class SpellBase implements ISpell {
 
 
     @Override
-    public void startCast(EntityPlayer player) {
+    public void startCast(EntityPlayer player, CastingAttributes castingAttributes) {
 
     }
 
     @Override
-    public void onTickCasting(EntityPlayer player) {
+    public void onTickCasting(EntityPlayer player, CastingAttributes castingAttributes) {
 
     }
 
     @Override
-    public void onFinishCasting(EntityPlayer player) {
+    public void onFinishCasting(EntityPlayer player, CastingAttributes castingAttributes) {
 
     }
 }

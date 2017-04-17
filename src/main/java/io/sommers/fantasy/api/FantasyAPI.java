@@ -1,6 +1,5 @@
 package io.sommers.fantasy.api;
 
-import io.sommers.fantasy.Fantasy;
 import io.sommers.fantasy.api.spells.ISpellRegistry;
 
 public class FantasyAPI {
@@ -24,7 +23,7 @@ public class FantasyAPI {
         this.spellRegistry = spellRegistry;
     }
 
-    public ISpellRegistry getSpellRegistry() {
-        return this.spellRegistry;
+    public static ISpellRegistry getSpellRegistry() {
+        return getInstance().spellRegistry;
     }
 }

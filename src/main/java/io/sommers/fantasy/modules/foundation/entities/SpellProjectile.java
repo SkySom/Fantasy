@@ -1,16 +1,25 @@
 package io.sommers.fantasy.modules.foundation.entities;
 
+import io.sommers.fantasy.Fantasy;
+import io.sommers.fantasy.api.FantasyAPI;
+import io.sommers.fantasy.api.spells.CastingAttributes;
 import io.sommers.fantasy.api.spells.IProjectileSpell;
+import io.sommers.fantasy.api.spells.ISpell;
 import io.sommers.fantasy.modules.foundation.FoundationModule;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 public class SpellProjectile extends EntityArrow {
     private IProjectileSpell spell;
+    private CastingAttributes castingAttributes;
 
     public SpellProjectile(World world) {
         super(world);
@@ -21,6 +30,18 @@ public class SpellProjectile extends EntityArrow {
         this.spell = spell;
     }
 
+    @Override
+    public void onHit(RayTraceResult rayTraceResult) {
+        this.spell.onHit(rayTraceResult);
+        this.setDead();
+    }
+
+    @Override
+    @Nullable
+    public EntityItem entityDropItem(ItemStack stack, float offsetY) {
+        //Just to ensure it drops nothing
+        return null;
+    }
 
     @Override
     @Nonnull
@@ -29,7 +50,25 @@ public class SpellProjectile extends EntityArrow {
     }
 
     @Override
-    public void onCollideWithPlayer(@Nonnull EntityPlayer entityIn) {
+    public void writeEntityToNBT(NBTTagCompound compound) {
+        super.writeEntityToNBT(compound);
+        NBTTagCompound spellInfo = new NBTTagCompound();
+        spellInfo.setString("name", spell.getName().toString());
+        spellInfo.setTag("castingAttributes", this.castingAttributes.writeToNBT(new NBTTagCompound()));
+        compound.setTag("spell", spellInfo);
+    }
 
+    @Override
+    public void readEntityFromNBT(NBTTagCompound compound) {
+        super.readEntityFromNBT(compound);
+        NBTTagCompound spellInfo = compound.getCompoundTag("spell");
+        ISpell spell = FantasyAPI.getSpellRegistry().getSpell(spellInfo.getString("name"));
+        if (spell instanceof IProjectileSpell) {
+            this.spell = (IProjectileSpell) spell;
+        } else {
+            Fantasy.instance.getLogger().fatal("Could not find Projectile Spell: " + spellInfo.getString("name"));
+        }
+
+        this.castingAttributes = new CastingAttributes(spellInfo.getCompoundTag("castingAttributes"));
     }
 }
