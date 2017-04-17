@@ -5,14 +5,16 @@ import net.minecraft.nbt.NBTTagCompound;
 public class CastingAttributes {
     private double power;
     private double cost;
+    private double length;
 
     public CastingAttributes() {
-        this(1.0, 1.0);
+        this(1.0, 1.0, 1.0);
     }
 
-    public CastingAttributes(double power, double cost) {
+    public CastingAttributes(double power, double cost, double length) {
         this.power = power;
         this.cost = cost;
+        this.length = length;
     }
 
     public CastingAttributes(NBTTagCompound castingAttributes) {
@@ -34,6 +36,14 @@ public class CastingAttributes {
 
     public void setCost(double cost) {
         this.cost = cost;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
     }
 
     public NBTTagCompound writeToNBT(NBTTagCompound nbtTagCompound) {

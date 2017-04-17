@@ -7,15 +7,15 @@ import net.minecraft.util.ResourceLocation;
 public interface ISpell {
     ResourceLocation getName();
 
-    CastingType getCastingType();
-
     boolean canCast(EntityLivingBase livingBase);
 
     double getCastingCost(CastingAttributes castingAttributes);
 
-    void startCast(EntityPlayer player, CastingAttributes castingAttributes);
+    int getCastingLength();
 
-    void onTickCasting(EntityPlayer player, CastingAttributes castingAttributes);
+    void startCast(EntityLivingBase livingBase, CastingAttributes castingAttributes);
 
-    void onFinishCasting(EntityPlayer player, CastingAttributes castingAttributes);
+    void onTickCasting(EntityLivingBase livingBase, CastingAttributes castingAttributes);
+
+    void onFinishCasting(EntityLivingBase livingBase, CastingAttributes castingAttributes);
 }

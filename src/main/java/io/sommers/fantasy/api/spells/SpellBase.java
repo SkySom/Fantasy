@@ -8,26 +8,21 @@ import net.minecraft.util.ResourceLocation;
 public class SpellBase implements ISpell {
     private ResourceLocation name;
     private int castingCost;
-    private CastingType castingType;
+    private int castingLength;
 
     public SpellBase(ResourceLocation name, int castingCost) {
-        this(name, castingCost, CastingType.INSTANT);
+        this(name, castingCost, 0);
     }
 
-    public SpellBase(ResourceLocation name, int castingCost, CastingType castingType) {
+    public SpellBase(ResourceLocation name, int castingCost, int castingLength) {
         this.name = name;
         this.castingCost = castingCost;
-        this.castingType = castingType;
+        this.castingLength = castingLength;
     }
 
     @Override
     public ResourceLocation getName() {
         return name;
-    }
-
-    @Override
-    public CastingType getCastingType() {
-        return castingType;
     }
 
     @Override
@@ -40,19 +35,24 @@ public class SpellBase implements ISpell {
         return Math.ceil(castingCost * castingAttributes.getCost());
     }
 
+    @Override
+    public int getCastingLength() {
+        return castingLength;
+    }
+
 
     @Override
-    public void startCast(EntityPlayer player, CastingAttributes castingAttributes) {
+    public void startCast(EntityLivingBase livingBase, CastingAttributes castingAttributes) {
 
     }
 
     @Override
-    public void onTickCasting(EntityPlayer player, CastingAttributes castingAttributes) {
+    public void onTickCasting(EntityLivingBase livingBase, CastingAttributes castingAttributes) {
 
     }
 
     @Override
-    public void onFinishCasting(EntityPlayer player, CastingAttributes castingAttributes) {
+    public void onFinishCasting(EntityLivingBase livingBase, CastingAttributes castingAttributes) {
 
     }
 }

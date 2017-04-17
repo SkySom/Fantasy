@@ -7,6 +7,7 @@ import io.sommers.fantasy.api.spells.ISpell;
 import io.sommers.fantasy.api.spells.spellholder.ISpellHolder;
 import io.sommers.fantasy.api.spells.spellholder.SpellHolder;
 import io.sommers.fantasy.api.spells.spellholder.SpellHolderProvider;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -19,37 +20,14 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class ItemScroll extends ItemBase {
+public class ItemScroll extends ItemSpellCaster {
     public ItemScroll() {
         super("scroll");
     }
 
     @Override
-    @Nonnull
-    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, @Nonnull EnumHand hand) {
-        EnumActionResult result = EnumActionResult.PASS;
-        ItemStack itemStack = player.getHeldItem(hand);
-        if (itemStack.hasCapability(FantasyCaps.spellHolder, null)) {
-            ISpellHolder spellHolder = itemStack.getCapability(FantasyCaps.spellHolder, null);
-            if (spellHolder != null) {
-                ISpell spell = spellHolder.getSpell();
-                if (spell.canCast(player)) {
-                    spell.startCast(player, spellHolder.getCastingAttributes());
-                }
-            }
-        }
-        return new ActionResult<>(result, itemStack);
-    }
-
-    @Override
-    @Nullable
-    public ICapabilityProvider initCapabilities(ItemStack stack, @Nullable NBTTagCompound nbt) {
-        ICapabilityProvider provider = null;
-        if (nbt != null && nbt.hasKey("spell")) {
-            ISpellHolder spellHolder = new SpellHolder(nbt.getCompoundTag("spell"));
-            provider = new SpellHolderProvider(spellHolder);
-        }
-        return provider;
+    public boolean canCast(EntityLivingBase caster, ISpell spell, CastingAttributes castingAttributes) {
+        return spell.canCast(caster);
     }
 
     public ItemStack getItemStackFor(ISpell spell) {
