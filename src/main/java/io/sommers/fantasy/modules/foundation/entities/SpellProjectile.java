@@ -1,16 +1,11 @@
 package io.sommers.fantasy.modules.foundation.entities;
 
-import io.sommers.fantasy.Fantasy;
-import io.sommers.fantasy.api.FantasyAPI;
 import io.sommers.fantasy.api.spells.CastingAttributes;
-import io.sommers.fantasy.api.spells.IProjectileSpell;
-import io.sommers.fantasy.api.spells.ISpell;
+import io.sommers.fantasy.api.spells.projectiles.IProjectileSpell;
 import io.sommers.fantasy.modules.foundation.FoundationModule;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
@@ -32,7 +27,7 @@ public class SpellProjectile extends EntityArrow {
 
     @Override
     public void onHit(RayTraceResult rayTraceResult) {
-        this.spell.onHit(rayTraceResult);
+        this.spell.onHit(this.getEntityWorld(), rayTraceResult);
         this.setDead();
     }
 

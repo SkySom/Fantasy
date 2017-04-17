@@ -1,9 +1,7 @@
 package io.sommers.fantasy.api.spells.spellholder;
 
-import io.sommers.fantasy.Fantasy;
 import io.sommers.fantasy.api.FantasyAPI;
 import io.sommers.fantasy.api.spells.CastingAttributes;
-import io.sommers.fantasy.api.spells.IProjectileSpell;
 import io.sommers.fantasy.api.spells.ISpell;
 import net.minecraft.nbt.NBTTagCompound;
 
