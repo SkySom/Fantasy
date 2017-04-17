@@ -23,7 +23,6 @@ public class FantasyAPI {
 
     public FantasyAPI(ISpellRegistry spellRegistry) {
         this.spellRegistry = spellRegistry;
-        MinecraftForge.EVENT_BUS.post(new RegisterSpellsEvent(spellRegistry));
     }
 
     public static ISpellRegistry getSpellRegistry() {

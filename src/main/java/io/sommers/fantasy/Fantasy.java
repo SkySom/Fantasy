@@ -45,6 +45,7 @@ public class Fantasy extends BaseModFoundation<Fantasy> {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
+        MinecraftForge.EVENT_BUS.post(new RegisterSpellsEvent(this.getRegistry(SpellRegistry.class, "SPELL")));
         super.init(event);
     }
 
