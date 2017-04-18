@@ -55,4 +55,9 @@ public class SpellBase implements ISpell {
     public void onFinishCasting(EntityLivingBase livingBase, CastingAttributes castingAttributes) {
 
     }
+
+    @Override
+    public String getUnlocalizedName() {
+        return "spell." + this.getName().getResourceDomain() + "." + this.getName().getResourceDomain();
+    }
 }

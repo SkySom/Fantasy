@@ -1,4 +1,39 @@
 itemGroup.fantasy=Fantasy
 
+#Foundation Items
 item.fantasy.scroll.name=Magic Scroll
+
+#Alteration Blocks
 tile.fantasy.mage_light.name=Mage Light
+
+#Alteration Spells
+spell.fantasy.mage_light.name=Mage Light
+
+#Restoration Spells
+#Potion Spells
+spell.minecraft.speed.name=Speed
+spell.minecraft.slowness.name=Slowness
+spell.minecraft.haste.name=Haste
+spell.minecraft.mining_fatigue.name=Mining Fatigue
+spell.minecraft.strength.name=Strength
+spell.minecraft.instant_health.name=Instant Health
+spell.minecraft.instant_damage.name=Instant Damage
+spell.minecraft.jump_boost.name=Jump Boost
+spell.minecraft.nausea.name=Nausea
+spell.minecraft.regeneration.name=Regeneration
+spell.minecraft.resistance.name.name=Resistance
+spell.minecraft.fire_resistance.name=Fire Resistance
+spell.minecraft.water_breathing.name=Water Breathing
+spell.minecraft.invisibility.name=Invisibility
+spell.minecraft.blindness.name=Blindness
+spell.minecraft.night_vision.name=Night Vision
+spell.minecraft.hunger.name=Hunger
+spell.minecraft.poison.name=Poison
+spell.minecraft.wither.name=Wither
+spell.minecraft.health_boost.name=Health Booster
+spell.minecraft.absorption.name=Absorption
+spell.minecraft.saturation.name=Saturation
+spell.minecraft.glowing.name=Glowing
+spell.minecraft.levitation.name=Levitation
+spell.minecraft.luck.name=Lucky
+spell.minecraft.unluck.name=Unlucky

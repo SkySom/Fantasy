@@ -18,4 +18,6 @@ public interface ISpell {
     void onTickCasting(EntityLivingBase livingBase, CastingAttributes castingAttributes);
 
     void onFinishCasting(EntityLivingBase livingBase, CastingAttributes castingAttributes);
+
+    String getUnlocalizedName();
 }
