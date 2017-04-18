@@ -17,7 +17,5 @@ public abstract class FantasyModule extends ModuleBase {
         this.registerSpells(this.getConfigRegistry(), registerSpellsEvent.getSpellRegistry());
     }
 
-    public void registerSpells(ConfigRegistry configRegistry, ISpellRegistry spellRegistry) {
-
-    }
+    public abstract void registerSpells(ConfigRegistry configRegistry, ISpellRegistry spellRegistry);
 }
