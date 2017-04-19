@@ -18,7 +18,7 @@ public class RestorationModule extends FantasyModule {
 
     @Override
     public void registerSpells(ConfigRegistry configRegistry, ISpellRegistry spellRegistry) {
-        ForgeRegistries.POTION_TYPES.getEntries().forEach(entry -> {
+        ForgeRegistries.POTIONS.getEntries().forEach(entry -> {
             if (entry.getKey().getResourceDomain().equals("minecraft")) {
                 spellRegistry.addSpell(new PotionSpell(entry.getValue()));
             }
